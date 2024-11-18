@@ -38,6 +38,16 @@ async def now_time(message: types.Message):
     now = datetime.datetime.now().strftime("%T-%d --> %d-%m-%Y")
     await message.answer(str(now))
 
+@dp.message(F.text, Command("post"))
+async def any_message(message: Message):
+    await message.answer(
+        "Hello, <b>world</b>!", 
+        parse_mode=ParseMode.HTML
+    )
+    await message.answer(
+        "Hello, *world*\!", 
+        parse_mode=ParseMode.MARKDOWN_V2
+    )
 
 # Отправка тестового голосования в чат
 @dp.message(Command("test_poll"))
