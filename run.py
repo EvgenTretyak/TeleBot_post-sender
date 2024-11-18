@@ -51,6 +51,17 @@ async def send_poll():
     data = (now+datetime.timedelta(days=1)).strftime("%d-%m-%Y")
     await bot.send_poll(chat_id=group_id, question=f'Идем на футбол завтра? {data}', options=['Да', 'Нет'])
 
+# Функция отправки поста в чат group_id
+async def any_message(message: Message):
+    await message.answer(
+        "Hello, <b>world</b>!", 
+        parse_mode=ParseMode.HTML
+    )
+    await message.answer(
+        "Hello, *world*\!", 
+        parse_mode=ParseMode.MARKDOWN_V2
+    )
+
 # Планировщик отпраки голослваний
 async def sheduler():
     now = datetime.datetime.now()
