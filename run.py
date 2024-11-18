@@ -40,7 +40,7 @@ async def now_time(message: types.Message):
     await message.answer(str(now))
 
 @dp.message(F.text, Command("post"))
-async def any_message(message: Message):
+async def any_message(message: types.Message):
     await message.answer(
         "Hello, <b>world</b>!", 
         parse_mode=ParseMode.HTML
